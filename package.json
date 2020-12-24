@@ -1,0 +1,25 @@
+{
+  "name": "f2elint_test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/LucasIcarus/f2elint_test.git",
+  "author": "凡辞 <qingdian.bqd@alibaba-inc.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "f2elint": "^0.4.4"
+  },
+  "scripts": {
+    "f2elint-scan": "f2elint scan",
+    "f2elint-fix": "f2elint fix"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "f2elint exec commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "f2elint exec lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,vue}": "f2elint exec eslint"
+  }
+}
